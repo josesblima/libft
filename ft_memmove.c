@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -28,13 +29,19 @@ void *ft_memmove(void *dest, const void *src, size_t n)
     }
     return (dest);
 }
-
+/*
 int main(void)
 {
     char dest[11] = "0123456789";
-    char *src = dest + 3);
+    char *src = dest + 3;
 
-    ft_memmove(dest, &src, 5);
+    memmove(dest, src, 5);
+    printf("dest = %s\n", dest);
+
+    strcpy(dest, "0123456789");
+    src = dest + 3;
+
+    ft_memmove(dest, src, 5);
     printf("dest = %s\n", dest);
     return (0);
-}
+}*/
