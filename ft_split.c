@@ -31,7 +31,7 @@ char **populate_array(char **arr, char const *s, char c, int i, int r, int l)
     {
         if (s[r] == c && r == l)
             j += r++ - l++;
-        else if (s[r] == c && r > 0)
+        else if ((s[r] == c || s[r] == 0) && r > 0)
         {
             arr[i] = (char *)malloc((r - l + 1) * sizeof(char));
             if (!arr[i])
@@ -73,7 +73,7 @@ char **ft_split(char const *s, char c)
 /*     int i; */
 
 /*     i = 0; */
-/*     char  **arr = ft_split(" hi this    doesn't work  h    ", ' '); */
+/*     char  **arr = ft_split("     eaaaa  aaaa ae   ", ' '); */
 /*     while (arr[i]) */
 /*     { */
 /*         printf("%s\n", arr[i]); */
