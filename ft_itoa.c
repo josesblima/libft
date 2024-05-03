@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char  *reverse_in_place(char *str, int neg, int len)
+static char  *reverse_in_place(char *str, int neg, int len)
 {
     int i;
     char  temp;
@@ -24,7 +24,7 @@ char  *reverse_in_place(char *str, int neg, int len)
     return (str);
 }
 
-char  *populate_array(long long int n, int len, char *str, int neg)
+static char  *populate_array(long long int n, int len, char *str, int neg)
 {
     int i;
 

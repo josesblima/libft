@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int check_set(char c, char const *set)
+static int check_set(char c, char const *set)
 {
     int i;
 
@@ -15,7 +15,7 @@ int check_set(char c, char const *set)
     return (0);
 }
 
-int ft_strlen(const char *str)
+static int ft_strlen(const char *str)
 {
     int i;
 
@@ -53,8 +53,8 @@ char  *ft_strtrim(char const *s1, char const *set)
     return (res);
 }
 
-int main(void)
-{
-    printf("%s\n", ft_strtrim("qwer1234567890rewqe", "qwer"));
-    return (0);
-}
+/* int main(void) */
+/* { */
+/*     printf("%s\n", ft_strtrim("qwer1234567890rewqe", "qwer")); */
+/*     return (0); */
+/* /1* } *1/ */

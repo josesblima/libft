@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int split_len(char const *s, char c)
+static int split_len(char const *s, char c)
 {
     int res;
     int j;
@@ -23,7 +23,7 @@ int split_len(char const *s, char c)
     return (res + 1);
 }
 
-char **populate_array(char **arr, char const *s, char c, int i, int r, int l)
+static char **populate_array(char **arr, char const *s, char c, int i, int r, int l)
 {
     int j;
 

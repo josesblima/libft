@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int check_set(char c, char const *set)
+static int check_set(char c, char const *set)
 {
     int i;
 
@@ -15,7 +15,7 @@ int check_set(char c, char const *set)
     return (0);
 }
 
-int ft_strlen(const char *str)
+static int ft_strlen(const char *str)
 {
     int i;
 
@@ -25,7 +25,7 @@ int ft_strlen(const char *str)
     printf("right_len = %d\n", i);
     return (i);
 }
-char *this_malloc(void)
+static char *this_malloc(void)
 {
     char *res;
 
