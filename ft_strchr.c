@@ -4,16 +4,18 @@
 char *ft_strchr(const char *s, int c)
 {
     int i;
+    unsigned char cc;
 
     i = 0;
+    cc = (unsigned char) c;
     while (s[i])
     {
-        if (s[i] == c)
+        if (s[i] == cc)
             return ((char *) (s + i));
         i++;
     }
-    if ((char *)(s + i) == 0)
-        return ((char *)(s + i));
+    if ((unsigned char)*(s + i) == cc)
+        return ((char *)s + i);
     return (NULL);
 }
 /*

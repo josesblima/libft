@@ -9,7 +9,7 @@ void  *ft_memchr(const void *s, int c, size_t n)
     str = (char *)s;
     while (i < (int)n)
     {
-        if (*(str + i) == c)
+        if (*(str + i) == c % 256)
             return (str + i);
         i++;
     }
