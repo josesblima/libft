@@ -52,7 +52,6 @@ static char **populate_array(char **arr, char const *s, char c, int i, int r, in
 
 char **ft_split(char const *s, char c)
 {
-    int len;
     char  **arr;
     int l;
     int r;

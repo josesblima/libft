@@ -12,13 +12,13 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     findlen = 0;
     while (little[findlen])
         findlen++;
-    while (big[i] != '\0' && i < len - findlen)
+    while (big[i] != '\0' && i < (int)len - (int)findlen)
     {
-        while (big[i + j] == little[j] && little[j] != '\0' && i < len - findlen)
+        while (big[i + j] == little[j] && little[j] != '\0' && i < (int)len - (int)findlen)
         {
             j++;
         }
-        if (j == findlen)
+        if (j == (int)findlen)
             return ((char *)&(big[i]));
         j = 0;
         i++;

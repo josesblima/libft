@@ -4,11 +4,22 @@ SRCS = ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.
 
 OBJS = $(SRCS:.c=.o)
 
+NAME = libft.a
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar -crs $(NAME) $(OBJS)
+
+%.o: %.c
+	cc -c -Wall -Wextra -Werror $<
+
 clean:
-	rm *.o libft.a
+	rm -f $(OBJS)
 
-all: $(OBJS)
-	ar -crs libft.a $(OBJS)
-OBJS: $(SRCS)
-	cc -c -Well -Wextra -Werror $(SRCS)
+fclean:
+	rm -f $(OBJS) $(NAME)
 
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re

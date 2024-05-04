@@ -5,6 +5,7 @@ static char  *reverse_in_place(char *str, int neg, int len)
 {
     int i;
     char  temp;
+    (void) neg;
 
     i = 0;
     if (str[i] == '-')
@@ -62,7 +63,10 @@ char  *ft_itoa(int n)
     }
     finaln = tempn;
     while (tempn > 0)
-        tempn /= 10 + (len++ - len);
+    {
+        tempn /= 10;
+        len++;
+    }
     str = (char *)malloc((len + neg + 1) * sizeof(char));
     if (!str)
         return (NULL);

@@ -8,7 +8,7 @@ void   *ft_bzero(void *buffer, size_t len)
 
     i = 0;
     buff = (unsigned char *)buffer;
-    while (i < len)
+    while (i < (int)len)
     {
         buff[i] = 0;
         i++;

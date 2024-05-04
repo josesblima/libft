@@ -7,7 +7,7 @@ void  *ft_memchr(const void *s, int c, size_t n)
 
     i = 0;
     str = (char *)s;
-    while (i < n)
+    while (i < (int)n)
     {
         if (*(str + i) == c)
             return (str + i);
