@@ -10,20 +10,24 @@
 
 char  *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    int i;
+    unsigned int i;
     char  *str;
 
     i = 0;
-    while (s[i++]);
-    str = (char *)malloc((i + 1) * sizeof(char));
+    if (!s || !f)
+        return (NULL);
+    while (s[i])
+        i++;
+    str = malloc((i + 1) * sizeof(char));
     if (!str)
         return (NULL);
     i = 0;
     while (s[i])
     {
-        str[i] = (*f)(i, s[i]);
+        str[i] = f(i, s[i]);
         i++;
     }
+    str[i] = 0;
     return (str);
 }
 
