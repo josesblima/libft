@@ -73,8 +73,8 @@ char  *ft_itoa(int n)
     return (populate_array(finaln, len, str, neg));
 }
 
-/* int main(void) */
-/* { */
-/*     printf("%s\n", ft_itoa(-2147483648)); */
-/*     return (0); */
-/* } */
+int main(void)
+{
+     printf("%s\n", ft_itoa(-2147483648));
+     return (0);
+}

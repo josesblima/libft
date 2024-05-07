@@ -10,15 +10,12 @@ int ft_atoi(const char *nptr)
     i = 0;
     res = 0;
     neg = 1;
-    while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\v'
-            || nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
+    while (nptr[i] && (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\v'
+            || nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' '))
         i++;
     if (nptr[i] == '-')
-    {
         neg = -1;
-        i++;
-    }
-    if (nptr[i] < '0' || nptr[i] > '9')
+    if (nptr[i] == '+' || nptr[i] == '-')
         i++;
     while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
     {
@@ -26,12 +23,12 @@ int ft_atoi(const char *nptr)
         res += nptr[i] - '0';
         i++;
     }
-    return (res * neg);
+    return ((int)(res * neg));
 }
-
-/* int main(void) */
-/* { */
-/*     printf("%d\n", ft_atoi("\t\n\v\f\r -2147483648")); */
-/*     printf("%d\n", atoi("\t\n\v\f\r -2147483648")); */
-/*     return (0); */
-/* } */
+//
+// int main(void)
+// { 
+//     printf("%d\n", ft_atoi("\t\n\v\f\r -2147483648"));
+//     printf("%d\n", atoi("\t\n\v\f\r -2147483648"));
+//     return (0);
+// }
