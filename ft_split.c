@@ -13,12 +13,15 @@ static int split_len(char const *s, char c)
         if (s[j] == c)
         {
             res++;
-            while (s[j++] == c);
+            while (s[j] == c)
+                j++;
         }
         else
             j++;
     }
-    if (s[--j] == c)
+    if (j > 0)
+        j--;
+    if (s[j] == c)
         return (res);
     return (res + 1);
 }
@@ -41,7 +44,11 @@ static char **populate_array(char **arr, char const *s, char c, int i, int r, in
             while (l < r)
                 arr[i - 1][j++] = s[l++];
             arr[i - 1][j] = 0;
-            while (l++ == c || r++ == c);
+            while (l == c || r == c)
+            {
+                l++;
+                r++;
+            }
         }
         else
             r++;
@@ -66,17 +73,17 @@ char **ft_split(char const *s, char c)
         return (NULL);
     return (populate_array(arr, s, c, i, r, l));
 }
-
-/* int main(void) */
-/* { */
-/*     int i; */
-
-/*     i = 0; */
-/*     char  **arr = ft_split("     eaaaa  aaaa ae   ", ' '); */
-/*     while (arr[i]) */
-/*     { */
-/*         printf("%s\n", arr[i]); */
-/*         i++; */
-/*     } */
-/*     return (0); */
-/* } */
+//
+// int main(void)
+// {
+//     int i;
+//
+//     i = 0;
+//     char  **arr = ft_split("", 'z');
+//     while (arr[i])
+//     { 
+//         printf("%s\n", arr[i]);
+//         i++;
+//     }
+//     return (0);
+// }
