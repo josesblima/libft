@@ -53,8 +53,8 @@ char  *ft_strtrim(char const *s1, char const *set)
     return (res);
 }
 
-/* int main(void) */
-/* { */
-/*     printf("%s\n", ft_strtrim("qwer1234567890rewqe", "qwer")); */
-/*     return (0); */
-/* /1* } *1/ */
+int main(void)
+{
+    printf("%s\n", ft_strtrim("qwer1234567890rewqe", "qwer"));
+    return (0);
+}

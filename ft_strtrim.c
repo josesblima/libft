@@ -22,7 +22,6 @@ static int ft_strlen(const char *str)
     i = 0;
     while (str[i])
         i++;
-    printf("right_len = %d\n", i);
     return (i);
 }
 static char *this_malloc(void)
@@ -30,6 +29,8 @@ static char *this_malloc(void)
     char *res;
 
     res = (char *)malloc(1 * sizeof (char));
+    if (!res)
+        return (NULL);
     res[0] = 0;
     return (res);
 }
@@ -44,11 +45,11 @@ char  *ft_strtrim(char const *s1, char const *set)
     left = 0;
     while (s1[left] && check_set(s1[left], set))
         left++;
-    if (left >= right)
+    if (left > right)
         return (this_malloc());
     while (s1[right] && check_set(s1[right], set))
         right--;
-    res = (char *)malloc((right - left + 1) * sizeof(char));
+    res = (char *)malloc((right - left + 2) * sizeof(char));
     if (!res)
         return (NULL);
     i = 0;
@@ -57,9 +58,9 @@ char  *ft_strtrim(char const *s1, char const *set)
     res[i] = 0;
     return (res);
 }
-
-/* int main(void) */
-/* { */
-/*     printf("%s\n", ft_strtrim("sadfw", "was")); */
-/*     return (0); */
-/* } */
+//
+// int main(void)
+// {
+//     printf("%s\n", ft_strtrim("sadfw", "was"));
+//     return (0);
+// }
