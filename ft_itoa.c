@@ -32,6 +32,12 @@ static char  *populate_array(long long int n, int len, char *str, int neg)
     i = 0;
     if (neg == 1)
     {
+        if (n == 0)
+        {
+            str[i] = '0';
+            str[++i] = 0;
+            return (str);
+        }
         str[i] = '-';
         i++;
     }
@@ -56,7 +62,7 @@ char  *ft_itoa(int n)
     tempn = n;
     len = 0;
     neg = 0;
-    if (tempn < 0)
+    if (tempn <= 0)
     {
         tempn *= -1;
         neg = 1;
@@ -72,9 +78,9 @@ char  *ft_itoa(int n)
         return (NULL);
     return (populate_array(finaln, len, str, neg));
 }
-
-int main(void)
-{
-     printf("%s\n", ft_itoa(-2147483648));
-     return (0);
-}
+//
+// int main(void)
+// {
+//      printf("%s\n", ft_itoa(0));
+//      return (0);
+// }
