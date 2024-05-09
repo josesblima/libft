@@ -10,20 +10,17 @@ static int split_len(char const *s, char c)
     j = 0;
     while (s[j])
     {
-        if (s[j] == c)
+        while (s[j] && s[j] != c)
         {
-            res++;
-            while (s[j] == c)
-                j++;
-        }
-        else
             j++;
+        }
+        if (j > 0 && s[j - 1] != c && (s[j] == c || s[j] == 0))
+            res++;
+        if (s[j])
+            j++;
+
     }
-    if (j > 0)
-        j--;
-    if (s[j] == c)
-        return (res);
-    return (res + 1);
+    return (res);
 }
 
 static char **populate_array(char **arr, char const *s, char c, int i, int r, int l)
@@ -79,7 +76,7 @@ char **ft_split(char const *s, char c)
 //     int i;
 //
 //     i = 0;
-//     char  **arr = ft_split("", 'z');
+//     char  **arr = ft_split("word", ' ');
 //     while (arr[i])
 //     { 
 //         printf("%s\n", arr[i]);
