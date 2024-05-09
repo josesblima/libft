@@ -16,6 +16,7 @@ typedef struct	s_split_next
 	size_t start;
 	size_t length;
 }				t_split_next;
+void ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 int				ft_atoi(const char *str);
 

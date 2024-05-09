@@ -1,19 +1,25 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
+#include <stdint.h>
 
 void  *ft_calloc(size_t nmemb, size_t size)
 {
     char *ptr;
-    size_t i;
 
-    ptr = (malloc(nmemb * size));
-    i = 0;
-    while (i < nmemb * size)
+    if (nmemb == 0 || size == 0)
     {
-        ptr[i] = 0;
-        i++;
+        nmemb = 1;
+        size = 1;
     }
-    return ((void *) ptr);
+    
+    if (SIZE_MAX / nmemb < size)  // Check for overflow
+        return NULL; // Overflow would occur, return NULL:warn("jk:w");
+    ptr = (malloc(nmemb * size));
+    if (!ptr)
+        return (NULL);
+    ft_bzero(ptr, nmemb * size);
+    return (ptr);
 }
 
 // int main(void) 
