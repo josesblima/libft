@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <string.h>
-void  *ft_memchr(const void *s, int c, size_t n)
-{
-    int i;
-    char *str;
 
-    i = 0;
-    str = (char *)s;
-    while (i < (int)n)
-    {
-        if (*(str + i) == c % 256)
-            return (str + i);
-        i++;
-    }
-    return (NULL);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = (char *)s;
+	while (i < (int)n)
+	{
+		if (*(str + i) == c % 256)
+			return (str + i);
+		i++;
+	}
+	return (NULL);
 }
 
 /* int main(void) */

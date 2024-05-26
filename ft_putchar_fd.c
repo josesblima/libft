@@ -1,8 +1,8 @@
 #include <unistd.h>
 
-void  ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }
 
 /* int main(void) */
@@ -11,4 +11,4 @@ void  ft_putchar_fd(char c, int fd)
 /*     ft_putchar_fd('\n', 2); */
 /*     return (0); */
 /* } */
-//cc ft_putchar_fd.c -o putchar && ./putchar >stdout.txt 2>stderr.txt
+// cc ft_putchar_fd.c -o putchar && ./putchar >stdout.txt 2>stderr.txt

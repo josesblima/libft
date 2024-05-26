@@ -1,74 +1,73 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-static int split_len(char const *s, char c)
+static int	split_len(char const *s, char c)
 {
-    int res;
-    int j;
+	int	res;
+	int	j;
 
-    res = 0;
-    j = 0;
-    while (s[j])
-    {
-        while (s[j] && s[j] != c)
-        {
-            j++;
-        }
-        if (j > 0 && s[j - 1] != c && (s[j] == c || s[j] == 0))
-            res++;
-        if (s[j])
-            j++;
-
-    }
-    return (res);
+	res = 0;
+	j = 0;
+	while (s[j])
+	{
+		while (s[j] && s[j] != c)
+		{
+			j++;
+		}
+		if (j > 0 && s[j - 1] != c && (s[j] == c || s[j] == 0))
+			res++;
+		if (s[j])
+			j++;
+	}
+	return (res);
 }
 
-static char **populate_array(char **arr, char const *s, char c, int i, int r, int l)
+static int	str_len_c(char const *s, char c, int pos)
 {
-    int j;
+	int	init_pos;
 
-    while (s[l])
-    {
-        if (s[r] == c && r == l)
-            j += r++ - l++;
-        else if ((s[r] == c || s[r] == 0) && r > 0)
-        {
-            arr[i] = (char *)malloc((r - l + 1) * sizeof(char));
-            if (!arr[i])
-                return (NULL);
-            i++;
-            j = 0;
-            while (l < r)
-                arr[i - 1][j++] = s[l++];
-            arr[i - 1][j] = 0;
-            while (l == c || r == c)
-            {
-                l++;
-                r++;
-            }
-        }
-        else
-            r++;
-    }
-    arr[i] = 0;
-    return (arr);
+	init_pos = pos;
+	while (s[pos] && s[pos] != c)
+		pos++;
+	return (pos - init_pos);
 }
 
-char **ft_split(char const *s, char c)
+static char	**populate_array(char **arr, char const *s, char c, int pos)
 {
-    char  **arr;
-    int l;
-    int r;
-    int i;
+	int	i;
+	int	j;
 
-    i = 0;
-    r = 0;
-    l = 0;
+	i = 0;
+	while (s[pos])
+	{
+		if (s[pos] != c)
+		{
+			arr[i] = (char *)malloc((str_len_c(s, c, pos) + 1) * sizeof(char));
+			j = 0;
+			while (s[pos] && s[pos] != c)
+			{
+				arr[i][j++] = s[pos++];
+			}
+			arr[i][j] = 0;
+			i++;
+		}
+		else
+			pos++;
+	}
+	arr[i] = 0;
+	return (arr);
+}
 
-    arr = malloc((split_len(s, c) + 1) * sizeof(char *));
-    if (!arr)
-        return (NULL);
-    return (populate_array(arr, s, c, i, r, l));
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		pos;
+
+	pos = 0;
+	arr = malloc((split_len(s, c) + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	return (populate_array(arr, s, c, pos));
 }
 //
 // int main(void)
@@ -76,9 +75,10 @@ char **ft_split(char const *s, char c)
 //     int i;
 //
 //     i = 0;
-//     char  **arr = ft_split("word", ' ');
+//     printf("main\n");
+//     char  **arr = ft_split("  one two    three    ", ' ');
 //     while (arr[i])
-//     { 
+//     {
 //         printf("%s\n", arr[i]);
 //         i++;
 //     }
