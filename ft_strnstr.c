@@ -1,6 +1,5 @@
+#include "libft.h"
 #include <stdio.h>
-
-/* #include <bsd/string.h> */
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -10,9 +9,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	findlen = 0;
-	while (little[findlen])
-		findlen++;
+	findlen = ft_strlen(little);
 	if (findlen == 0)
 		return ((char *)big);
 	if (findlen > len)
@@ -31,10 +28,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-
-/* int main(void) */
-/* { */
-/*     printf("%s\n", ft_strnstr("0123456789", "23", 3)); */
-/*     printf("%s\n", strnstr("0123456789", "23", 3)); */
-/*     return (0); */
-/* } */
+//
+// int	main(void)
+// {
+// 	printf("%s\n", ft_strnstr("0123456789", "23", 3));
+// 	// printf("%s\n", strnstr("0123456789", "23", 3));
+// 	return (0);
+// }

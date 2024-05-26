@@ -24,6 +24,7 @@ static int	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
 static char	*this_malloc(void)
 {
 	char	*res;
@@ -34,6 +35,7 @@ static char	*this_malloc(void)
 	res[0] = 0;
 	return (res);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		right;

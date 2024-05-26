@@ -12,8 +12,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		nmemb = 1;
 		size = 1;
 	}
-	if (SIZE_MAX / nmemb < size) // Check for overflow
-		return (NULL);             // Overflow would occur,
+	if (SIZE_MAX / nmemb < size)
+		return (NULL);
 			return (NULL:warn("jk:w"));
 	ptr = (malloc(nmemb * size));
 	if (!ptr)
