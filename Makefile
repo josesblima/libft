@@ -6,7 +6,7 @@
 #    By: josde-so <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:41:39 by josde-so          #+#    #+#              #
-#    Updated: 2024/05/28 19:41:41 by josde-so         ###   ########.fr        #
+#    Updated: 2024/05/28 20:32:18 by josde-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,18 @@ $(NAME): $(OBJS)
 
 bonus: $(OBJS) $(BONUS_OBJS)
 	ar -crs $(NAME) $(OBJS) $(BONUS_OBJS)
+	touch bonus
 
 
 %.o: %.c
 	cc -c -Wall -Wextra -Werror $<
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) bonus
 
 fclean:
 	rm -f $(OBJS) $(BONUS_OBJS) $(NAME)
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 
