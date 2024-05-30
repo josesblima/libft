@@ -24,15 +24,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	findlen = ft_strlen(little);
 	if (findlen == 0)
 		return ((char *)big);
+	if (big == 0)
+		i = big[i];
 	if (findlen > len)
 		return (0);
 	while (big[i] != '\0' && i <= len - findlen)
 	{
 		while (big[i + j] == little[j] && little[j] != '\0' && i <= len
 			- findlen)
-		{
 			j++;
-		}
 		if (j == findlen)
 			return ((char *)&(big[i]));
 		j = 0;

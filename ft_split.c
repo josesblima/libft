@@ -44,6 +44,16 @@ static int	str_len_c(char const *s, char c, int pos)
 	return (pos - init_pos);
 }
 
+static char	**free_all(char **arr, int i)
+{
+	while (--i >= 0)
+	{
+		free(arr[i]);
+	}
+	free(arr);
+	return (NULL);
+}
+
 static char	**populate_array(char **arr, char const *s, char c, int pos)
 {
 	int	i;
@@ -55,6 +65,8 @@ static char	**populate_array(char **arr, char const *s, char c, int pos)
 		if (s[pos] != c)
 		{
 			arr[i] = (char *)malloc((str_len_c(s, c, pos) + 1) * sizeof(char));
+			if (!arr[i])
+				return (free_all(arr, i));
 			j = 0;
 			while (s[pos] && s[pos] != c)
 			{

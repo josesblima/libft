@@ -24,7 +24,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if ((int)n == 0)
 		return (0);
-	while (str1[i] && str2[i] && str1[i] == str2[i] && i < (int)n)
+	while (i < (int)n && str1[i] == str2[i])
 	{
 		i++;
 	}
@@ -34,9 +34,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (str1[i] - str2[i]);
 }
-
- int main(void)
- {
-     printf("%d\n", memcmp(".........", ".........", 10)); 
-     return (0); 
- }
+//
+// int main(void)
+// {
+//     printf("%d\n", memcmp(".........", ".........", 10));
+//     return (0);
+// }
