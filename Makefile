@@ -6,7 +6,12 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = libftprintf.a
 
-all: $(NAME)
+LIBFT = libft/libft.a
+
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	cd libft && make
 
 $(NAME): $(OBJS)
 	ar -crs $(NAME) $(OBJS)

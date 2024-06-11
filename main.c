@@ -12,10 +12,11 @@ int	main(void)
 	str = "Hello";
 	str2 = "world";
     i = 42;
-	ft_printf("string: %s\nchar: %c\nptr: %p\nhexa: %x\n", str, str[0], str, 42);
-	printf("TRUE PRINTF:\nstring: %s\nchar: %c\nptr: %p\nhexa: %x\n", str, str[0], str, 42);
-	// printf("%p\n", str);
-    // printf("test deci to hexa: %d\n", 0x100);
+	ft_printf("\nMY PRINTF\nd: %d\nu: %u\ns: %s\nc: %c\np: %p\nx: %x\nx hexa: %x\nX Hexa: %X\n\n", 0x2a, -1, str, str[0], str, 42, 0x2a, 0x2a);
+	printf("TRUE PRINTF:\nd: %d\nu: %u\ns: %s\nc: %c\np: %p\nx: %x\nx hexa: %x\nX Hexa: %X\n\n", 0x2a, -1, str, str[0], str, 42, 0x2a, 0x2a);
+    printf("\nTESTING\nu: %u\n", -1);
+    ft_printf("\nMY TEST\nd: %d\nx nega: %x", -0x2a, -0x2a);
+    printf("\nTEST\nd: %d\nx nega: %x", -0x2a, -0x2a);
 	return (0);
 }
 // cc -o ft_printf ft_printf.c -L. -lft && ./ft_printf

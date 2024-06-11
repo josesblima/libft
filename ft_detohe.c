@@ -44,7 +44,7 @@ static char	*populate_array2(long n, long len, char *str, long neg)
 	while (n > 0)
 	{
 		if (n % 16 >= 10)
-			str[i] = 'A' - 10 + (n % 16);
+			str[i] = 'a' - 10 + (n % 16);
 		else
 			str[i] = (n % 16) + '0';
 		n /= 16;
