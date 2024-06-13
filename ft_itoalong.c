@@ -77,4 +77,3 @@ char	*ft_itoalong(long n)
 		return (NULL);
 	return (populate_array(finaln, len, str, neg));
 }
-

@@ -1,5 +1,5 @@
+#include "ft_printf.h"
 #include "libft/libft.h"
-#include "libftprintf.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,7 +40,7 @@ void	ft_diu(char ch, va_list args)
 	}
 }
 
-void	ft_xXperc(char ch, va_list args)
+void	ft_xxperc(char ch, va_list args)
 {
 	char	*str;
 	int		i;
@@ -53,6 +53,10 @@ void	ft_xXperc(char ch, va_list args)
 		i = -1;
 		while (str[++i])
 			str[i] = ft_toupper(str[i]);
+	}
+	else if (ch == '%')
+	{
+		return ;
 	}
 	ft_putstr_fd(str, 1);
 }
@@ -77,7 +81,7 @@ int	ft_printf(const char *str_literal, ...)
 		else if (str_literal[i] == '%' && ((i + 1) < ft_strlen(str_literal)
 				&& ((str_literal[i + 1] == 'x' || str_literal[i + 1] == 'X'
 						|| str_literal[i + 1] == '%'))))
-			ft_xXperc(str_literal[(i++) + 1], args);
+			ft_xxperc(str_literal[(i++) + 1], args);
 		else
 			write(1, &str_literal[i], 1);
 		i++;

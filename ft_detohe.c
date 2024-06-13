@@ -25,7 +25,7 @@ static char	*reverse_in_place2(char *str, long len)
 	return (str);
 }
 
-static char	*populate_array2(unsigned n, long len, char *str)
+static char	*populate_array2(unsigned int n, long len, char *str)
 {
 	long	i;
 
@@ -43,16 +43,16 @@ static char	*populate_array2(unsigned n, long len, char *str)
 	return (reverse_in_place2(str, len));
 }
 
-char	*ft_detohe(unsigned n)
+char	*ft_detohe(unsigned int n)
 {
-	unsigned	tempn;
-	long		len;
-	char		*str;
-	unsigned	finaln;
+	unsigned int	tempn;
+	long			len;
+	char			*str;
+	unsigned int	finaln;
 
 	finaln = n;
 	len = 0;
-	tempn = (unsigned)n;
+	tempn = (unsigned int)n;
 	while (tempn > 0)
 	{
 		tempn /= 16;
