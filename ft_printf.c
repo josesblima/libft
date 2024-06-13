@@ -9,6 +9,7 @@ void	ft_csp(char ch, va_list args)
 {
 	long	lvarg;
 	char	charc;
+	char	*str;
 
 	if (ch == 's')
 		ft_putstr_fd(va_arg(args, char *), 1);
@@ -21,7 +22,9 @@ void	ft_csp(char ch, va_list args)
 	{
 		lvarg = va_arg(args, long long);
 		write(1, "0x", 2);
-		ft_putstr_fd(ft_detohe_long(lvarg), 1);
+		str = ft_detohe_long(lvarg);
+		ft_putstr_fd(str, 1);
+		free(str);
 	}
 }
 
