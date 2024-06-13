@@ -19,73 +19,44 @@ void	ft_csp(char ch, va_list args)
 	}
 	else if (ch == 'p')
 	{
-		lvarg = va_arg(args, long);
+		lvarg = va_arg(args, long long);
 		write(1, "0x", 2);
-		ft_putstr_fd(ft_detohe(lvarg), 1);
+		ft_putstr_fd(ft_detohe_long(lvarg), 1);
 	}
 }
-// THIS ISN"T WORKING - need to make it so that wraps around on unsigned integers
+
 void	ft_diu(char ch, va_list args)
 {
-    unsigned int    unint;
+	int	unint;
 
 	if (ch == 'u')
-    {
-        unint = va_arg(args, unsigned int);
-        printf("\nitwenthere\n");
-		ft_putstr_fd(ft_itoa(unint), 1);
-    }
-    else
-    {
+	{
+		unint = va_arg(args, unsigned int);
+		ft_putstr_fd(ft_itoa_unsigned(unint), 1);
+	}
+	else
+	{
 		ft_putstr_fd(ft_itoa(va_arg(args, long)), 1);
-    }
+	}
 }
+
 void	ft_xXperc(char ch, va_list args)
 {
 	char	*str;
 	int		i;
-	// int		j;
-	// char	cur_char;
-	// int		temp_res;
-	// char	res[9999];
 
 	if (ch == 'x')
 		str = ft_detohe(va_arg(args, long));
-    else if (ch == 'X')
-    {
+	else if (ch == 'X')
+	{
 		str = ft_detohe(va_arg(args, long));
-        i = -1;
-        while (str[++i])
-            str[i] = ft_toupper(str[i]);
-    }
-    ft_putstr_fd(str, 1);
-	/*char	*str;
-	if (!ch)
-	{
-		return ;
+		i = -1;
+		while (str[++i])
+			str[i] = ft_toupper(str[i]);
 	}
-	i = 0;
-	str = ft_itoalong(va_arg(args, long));
-	while (str[i])
-	{
-		j = 0;
-		cur_char = str[i];
-		if (cur_char > '9')
-			cur_char = 'a' - 10 + cur_char;
-		temp_res = 0;
-		while (j < str[i] - 1)
-		{
-			temp_res += (cur_char * cur_char) * (str[i] - 1);
-			j++;
-		}
-		res[i] = temp_res;
-		i++;
-	}
-	printf("\nafter tempres: %s\n", res);
-	ft_putstr_fd(res, 1);
-	printf("\nafter after tempres\n");
-	*/
+	ft_putstr_fd(str, 1);
 }
+
 int	ft_printf(const char *str_literal, ...)
 {
 	size_t	i;

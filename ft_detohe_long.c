@@ -8,12 +8,6 @@ static char	*reverse_in_place2(char *str, long len)
 	char	temp;
 
 	i = 0;
-	if (str[i] == '-')
-	{
-		i++;
-	}
-	else
-		len--;
 	while (i < len)
 	{
 		temp = str[i];
@@ -25,7 +19,7 @@ static char	*reverse_in_place2(char *str, long len)
 	return (str);
 }
 
-static char	*populate_array2(unsigned n, long len, char *str)
+static char	*populate_array2(long n, long len, char *str)
 {
 	long	i;
 
@@ -40,19 +34,17 @@ static char	*populate_array2(unsigned n, long len, char *str)
 		i++;
 	}
 	str[i] = 0;
-	return (reverse_in_place2(str, len));
+	return (reverse_in_place2(str, len - 1));
 }
 
-char	*ft_detohe(unsigned n)
+char	*ft_detohe_long(long long n)
 {
-	unsigned	tempn;
-	long		len;
+	long long	tempn;
+	long long	len;
 	char		*str;
-	unsigned	finaln;
 
-	finaln = n;
 	len = 0;
-	tempn = (unsigned)n;
+	tempn = n;
 	while (tempn > 0)
 	{
 		tempn /= 16;
@@ -61,5 +53,5 @@ char	*ft_detohe(unsigned n)
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	return (populate_array2(finaln, len, str));
+	return (populate_array2(n, len, str));
 }

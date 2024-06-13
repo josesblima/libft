@@ -1,6 +1,6 @@
 # _*_ MakeFile _*_
 
-SRCS = ft_printf.c ft_detohe.c ft_itoalong.c
+SRCS = ft_printf.c ft_detohe.c ft_itoalong.c ft_itoa_unsigned.c ft_detohe_long.c
 
 OBJS = $(SRCS:.c=.o)
 
