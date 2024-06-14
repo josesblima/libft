@@ -29,6 +29,6 @@ fclean:
 	rm -f $(OBJS) $(NAME)
 	make fclean -C libft
 
-re: fclean $(NAME)
+re: fclean $(LIBFT) $(NAME)
 
 .PHONY: all clean fclean re
