@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static char	*reverse_in_place2(char *str, long len)
+static char	*reverse_in_placetwo(char *str, long len)
 {
 	long	i;
 	char	temp;
@@ -25,7 +25,7 @@ static char	*reverse_in_place2(char *str, long len)
 	return (str);
 }
 
-static char	*populate_array2(unsigned int n, long len, char *str)
+static char	*populate_arraytwo(unsigned int n, long len, char *str)
 {
 	long	i;
 
@@ -40,10 +40,10 @@ static char	*populate_array2(unsigned int n, long len, char *str)
 		i++;
 	}
 	str[i] = 0;
-	return (reverse_in_place2(str, len));
+	return (reverse_in_placetwo(str, len));
 }
 
-char	*ft_detohe(unsigned int n)
+char	*ft_detohe(unsigned int n, int *count)
 {
 	unsigned int	tempn;
 	long			len;
@@ -58,8 +58,9 @@ char	*ft_detohe(unsigned int n)
 		tempn /= 16;
 		len++;
 	}
+    *count += len;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	return (populate_array2(finaln, len, str));
+	return (populate_arraytwo(finaln, len, str));
 }
