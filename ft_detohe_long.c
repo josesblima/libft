@@ -2,10 +2,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static char	*reverse_in_place2(char *str, long len)
+static char	*reverse_in_placetwo(char *str, unsigned long long len)
 {
-	long	i;
-	char	temp;
+	unsigned long	i;
+	char			temp;
 
 	i = 0;
 	while (i < len)
@@ -19,11 +19,16 @@ static char	*reverse_in_place2(char *str, long len)
 	return (str);
 }
 
-static char	*populate_array2(long n, long len, char *str)
+static char	*populate_arraytwo(unsigned long long n, unsigned long long len,
+		char *str)
 {
 	long	i;
 
 	i = 0;
+	if (n == 0)
+	{
+		str[i++] = '0';
+	}
 	while (n > 0)
 	{
 		if (n % 16 >= 10)
@@ -34,14 +39,14 @@ static char	*populate_array2(long n, long len, char *str)
 		i++;
 	}
 	str[i] = 0;
-	return (reverse_in_place2(str, len - 1));
+	return (reverse_in_placetwo(str, len - 1));
 }
 
-char	*ft_detohe_long(long long n)
+char	*ft_detohe_long(unsigned long long n)
 {
-	long long	tempn;
-	long long	len;
-	char		*str;
+	unsigned long long	tempn;
+	unsigned long long	len;
+	char				*str;
 
 	len = 0;
 	tempn = n;
@@ -50,8 +55,10 @@ char	*ft_detohe_long(long long n)
 		tempn /= 16;
 		len++;
 	}
+	if (n == 0)
+		len++;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	return (populate_array2(n, len, str));
+	return (populate_arraytwo(n, len, str));
 }

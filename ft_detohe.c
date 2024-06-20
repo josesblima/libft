@@ -30,6 +30,8 @@ static char	*populate_arraytwo(unsigned int n, long len, char *str)
 	long	i;
 
 	i = 0;
+	if (n == 0)
+		str[i++] = '0';
 	while (n > 0)
 	{
 		if (n % 16 >= 10)
@@ -43,7 +45,7 @@ static char	*populate_arraytwo(unsigned int n, long len, char *str)
 	return (reverse_in_placetwo(str, len));
 }
 
-char	*ft_detohe(unsigned int n, int *count)
+char	*ft_detohe(unsigned int n)
 {
 	unsigned int	tempn;
 	long			len;
@@ -58,7 +60,8 @@ char	*ft_detohe(unsigned int n, int *count)
 		tempn /= 16;
 		len++;
 	}
-    *count += len;
+	if (n == 0)
+		len++;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

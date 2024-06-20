@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
 
-int	ft_putstr_fd_count(char *s, int fd)
+int	ft_putstr_fd_count_free(char *s, int fd)
 {
 	int	i;
 
@@ -28,5 +29,6 @@ int	ft_putstr_fd_count(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+	free(s);
 	return (i);
 }
